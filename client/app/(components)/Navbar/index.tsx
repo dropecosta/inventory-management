@@ -1,7 +1,8 @@
 "use client"
 
 import React from 'react'
-import { Bell, Menu, Sun } from 'lucide-react'
+import { Bell, Menu, Settings, Sun } from 'lucide-react'
+import Link from 'next/link'
 
 const Navbar = () => {
   return (
@@ -64,9 +65,9 @@ const Navbar = () => {
             <span className="font-semibold">Pedro Reis</span>
           </div>
 
-        {/* <Link href="/settings">
+        <Link href="/settings">
           <Settings className="cursor-pointer text-gray-500" size={24} />
-        </Link> */}
+        </Link>
       </div>
 
     </div>
