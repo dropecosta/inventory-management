@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import DashboardWrapper from "@/app/dashboardWrapper";
+import StoreProvider from "@/app/redux";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-full flex flex-col antialiased`}>
-        <DashboardWrapper>{children}</DashboardWrapper>
+        <StoreProvider>
+          <DashboardWrapper>{children}</DashboardWrapper>
+        </StoreProvider>
       </body>
     </html>
   );
