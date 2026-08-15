@@ -3,8 +3,19 @@
 import React from 'react'
 import { Bell, Menu, Settings, Sun } from 'lucide-react'
 import Link from 'next/link'
+import { useAppDispatch, useAppSelector } from '@/app/redux'
+import { setIsSidebarCollapsed } from '@/app/state'
 
 const Navbar = () => {
+  const dispatch = useAppDispatch()
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed,
+  )
+
+  const toggleSidebar = () => {
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))
+  }
+
   return (
     <div className='flex justify-between items-center w-full mb-7'>
       
@@ -12,7 +23,8 @@ const Navbar = () => {
       <div className='flex justify-between items-center gap-5'>
         <button
           className='bg-gray-100 hover:bg-blue-100 py-3 px-3 rounded-full'
-          onClick={() => {}}
+          onClick={toggleSidebar}
+          aria-label="Toggle sidebar"
         >
           <Menu className='w-4 h-4' />
         </button>
